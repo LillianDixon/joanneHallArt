@@ -1,0 +1,15 @@
+@import "variables.scss";
+
+body{
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    background-color: $grey;
+}
+
+.link{
+    padding: 50px 30px;
+}

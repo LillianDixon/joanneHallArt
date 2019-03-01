@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { NavLink } from "react-router-dom";
+import { SocialIcon } from 'react-social-icons';
 
 export default function(){
     return(
@@ -11,8 +12,12 @@ export default function(){
                 <NavLink to="/contact" activeClassName = "nav-link-active">Contact</NavLink>
             </div>
             <div className="social-media-wrapper">
+
+            <SocialIcon url="https://www.facebook.com/joannehallart/" />
+            <SocialIcon url="https://www.instagram.com" />
+            <SocialIcon url="https://www.blogger.com" />
                 
-            <a href=""></a>
+            {/* <a href="#"></a> */}
             </div>
             
         </div>
