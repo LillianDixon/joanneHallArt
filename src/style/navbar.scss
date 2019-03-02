@@ -8,8 +8,10 @@ body{
     display: flex;
     justify-content: flex-end;
     background-color: $grey;
-}
-
-.link{
-    padding: 20px 30px;
+   
+    .link{
+        padding: 20px 30px;
+        font-family: $title;
+        color: $text-color
+    }
 }
