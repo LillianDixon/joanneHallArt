@@ -1,0 +1,24 @@
+.footer-wrapper{
+    background-color: $grey;
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+
+    .footer-nav-links-wrapper{
+        display: flex;
+        justify-content: space-around;
+        padding: 30px 15px 15px 15px;
+    }
+
+    .social-media-wrapper{
+        display: flex;
+        justify-content: center;
+
+        .social-media-link{
+            width: 20px;
+            padding: 20px 30px;
+        }
+    }
+
+}
