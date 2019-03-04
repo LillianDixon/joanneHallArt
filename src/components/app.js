@@ -26,7 +26,6 @@ export default class App extends Component {
           </div>
 
         </Router>
-          <h1>Joanne Hall Art</h1>
 
           <Footer />
       </div>

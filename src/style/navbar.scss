@@ -13,12 +13,16 @@ body{
         a{
             text-decoration: none; 
             color: $text-color;
+            text-transform: uppercase;
+            border-bottom: 1px solid transparent;
 
+            &:hover{
+                border-bottom: 1px solid black;
+                color: black;
+                transition: 0.5s;
+            }
         }
-        
-        .nav-link-active{
-            text-decoration: none;
-        }
+
     }
 
 }
