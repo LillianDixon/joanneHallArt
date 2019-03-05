@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+import FouxLogo from "../../../static/assets/images/foux-logo.jpg";
 
 export default function(){
     return(
-        <div>
-            <h2>Home</h2>
-            {/* https://image.freepik.com/free-vector/quill-signature-logo-design-inspiration_57043-204.jpg */}
-        </div>
+        <div 
+        className="home" 
+        style={{
+            backgroundImage: `url(${FouxLogo})`
+        }}
+        />
+             
     )
 }
 
