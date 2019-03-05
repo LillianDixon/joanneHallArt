@@ -3,12 +3,9 @@ import FouxLogo from "../../../static/assets/images/foux-logo.jpg";
 
 export default function(){
     return(
-        <div 
-        className="home" 
-        style={{
-            backgroundImage: `url(${FouxLogo})`
-        }}
-        />
+        <div className="home">
+            <img src={FouxLogo}/>
+        </div>
              
     )
 }
