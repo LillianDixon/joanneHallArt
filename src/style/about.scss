@@ -1,0 +1,36 @@
+.about-wrapper{
+    
+    .about-title{
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+    }
+
+    .about-info-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        
+    }
+    
+    .about-info-wrapper img{
+        width: 60%;
+        margin-bottom: 70px;
+        margin-top: 20px;
+    }
+
+    .about-info{
+        display: grid;
+        grid-template-rows: 1fr 4fr;  
+        justify-content: center;
+        padding-right: 50px;
+
+        h2{
+            text-align: center;
+        }
+
+        p{ 
+            text-align: center;
+        }
+    }
+}
