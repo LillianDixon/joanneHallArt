@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { SocialIcon } from 'react-social-icons';
 
 export default function(){
+    
+
     return(
         <div className="footer-wrapper">
             <div className="footer-nav-links-wrapper">

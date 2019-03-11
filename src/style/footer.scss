@@ -1,10 +1,9 @@
 .footer-wrapper{
     background-color: $grey;
-    left:0;
-    bottom:0;
-    right:0;
-    bottom: 0;
-    position: relative;
+    position: relative;;
+    bottom:-101px;
+    right: 0;
+    left: 0;
 
     .footer-nav-links-wrapper{
         display: flex;
