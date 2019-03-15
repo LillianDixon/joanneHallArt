@@ -31,17 +31,18 @@ const Navbar = props => {
     return(
         <div className="navbar">
             <div className="right-side">
+                <div className="sign-out">
+                    {props.loggedInStatus === "LOGGED_IN" ? (
+                    <a onClick={handleSignOut}>Sign Out</a>
+                    ) : null}
+                </div>
+                
                 <div className="siteManager">
                     {props.loggedInStatus === "LOGGED_IN" ? (
                     dynamicLink("/siteManager", "Site Manager")
                     ) : null}
                 </div>
 
-                <div className="sign-out">
-                    {props.loggedInStatus === "LOGGED_IN" ? (
-                    <a onClick={handleSignOut}>Sign Out</a>
-                    ) : null}
-                </div>
             </div>
             <div className="link">
                 <NavLink exact to="/" activeClassName = "nav-link-active">Home</NavLink>

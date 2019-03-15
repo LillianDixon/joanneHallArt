@@ -1,8 +1,14 @@
-.artwork-wrapper h1{
-    display: flex;
-        justify-content: center;
 
+.two-column-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
 }
 
+.art{
+    background-color: $grey;
+}
 
-
+img{
+    width: 30%;
+}

@@ -17,17 +17,20 @@ export default function(){
             <div className="projects">
                 <div className="present-projects">
                     <h2>Present Projects</h2>
-                        <div className="art">
-                            <img src={Flowers} />
-                            <p>Title</p>
-                        </div>
-                        <div className="art">
-                            <img src={ChinaWorker} />
-                            <p>Title</p>
+                        <div className="two-column-wrapper">
+                            <div className="art">
+                                <img src={Flowers} />
+                                <p>Title</p>
+                            </div>
+                            <div className="art">
+                                <img src={ChinaWorker} />
+                                <p>Title</p>
+                            </div>
                         </div>
                 </div>
                 <div className="past-projects">
                     <h2>Past Projects</h2>
+                        <div className="two-column-wrapper">
                         <div className="art">
                             <img src={Bunny} />
                             <p>Title</p>
@@ -51,6 +54,7 @@ export default function(){
                         <div className="art">
                             <img src={Sunflower} />
                             <p>Title</p>
+                        </div>
                         </div>
                 </div>
             </div>
