@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import FouxLogo from "../../../static/assets/images/foux-logo.jpg";
+import JHLogo from "../../../static/assets/images/JHLogo.png";
 
 export default function(){
     return(
         <div className="home">
-            <img src={FouxLogo}/>
+            <img src={JHLogo}/>
         </div>
              
     )
 }
-

@@ -14,7 +14,7 @@ export default function(){
                 <div className="about-info">
                     <h2>Joanne Hall</h2>
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        <p>I love art…creating art, teaching art, studying art and hanging out with artists. To me there is no better therapy than total immersion in the creative process. <br></br><br></br>However, I have not been a consistent dedicated creator. More than once I have put away my art for months (sometimes maybe even a year or two) while other “life happenings” commanded front stage.<br></br><br></br>This is my renewed commitment to growth, realization, dedication and experimentation. It’s my journeys in art.</p>
                     </div>
                 </div>
             </div>

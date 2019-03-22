@@ -7,6 +7,7 @@ export default function(){
 
     return(
         <div className="footer-wrapper">
+            <div className="push"></div>
             <div className="footer-nav-links-wrapper">
                 <div className="footer-link">
                     <NavLink exact to="/" activeClassName = "nav-link-active">Home</NavLink>
@@ -32,7 +33,7 @@ export default function(){
             <div className="social-media-link">
                 <SocialIcon url="https://www.instagram.com" />
             </div>
-                
+                 
             </div>
             
         </div>

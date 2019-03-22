@@ -4,6 +4,7 @@
         display: flex;
         justify-content: center;
         padding: 40px;
+        font-family: $title;
     }
 
     .about-info-wrapper{
@@ -27,10 +28,12 @@
 
         h2{
             text-align: center;
+            font-family: $title;
         }
 
         p{ 
             text-align: center;
+            font-family: $text;
         }
     }
 }
