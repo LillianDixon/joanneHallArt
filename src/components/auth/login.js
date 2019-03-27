@@ -39,13 +39,13 @@ export default class Login extends Component {
                 this.setState({
                     errorText: "Wrong email or password"
                 })
-                this.props.handleSuccessfulAuth();
+                this.props.handleUnSuccessfulAuth();
             }
         }).catch(error => {
             this.setState({
               errorText: "An error occured"
             })
-            this.props.handleSuccessfulAuth();
+            this.props.handleUnSuccessfulAuth();
         });
 
         event.preventDefault();

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 
 const Navbar = props => {
     const dynamicLink = (route, linkText) => {

@@ -85,6 +85,15 @@ authorizedPages() {
   return [<Route key="siteManager" path="/siteManager" component={SiteManager} />];
 }
 
+getPortfolioItems(){
+  axios.get("/user?ID=12345")
+  .then(function(resonse) {
+    console.log(response);
+  }).catch(function(error) {
+    console.log(error);
+  })
+}
+
   render() {
     return (
       <div className='app'>
