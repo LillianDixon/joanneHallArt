@@ -1,4 +1,6 @@
 .artwork-wrapper{
+    padding-bottom: 150px;
+
     h1{
         display: flex;
         justify-content: center;
@@ -17,7 +19,8 @@
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 4rem;
             grid-auto-flow: row;
-            padding: 50px;
+            padding: 200px;
+            padding-top: 50px;
             
             .art{
                 grid-template-rows: repeat 4;
@@ -34,10 +37,18 @@
                     padding: 50px 0px;
                 }
 
-                p{
+                a{
                     color: $text-color;
                     padding-bottom: 30px;
                     font-size: 2em;
+                    text-decoration: none;
+                    border-bottom: 1px solid transparent;
+
+                    &:hover{
+                        text-decoration: underline;
+                        color: black;
+                        transition: 0.5s;
+                    }
                 }
             }
         }

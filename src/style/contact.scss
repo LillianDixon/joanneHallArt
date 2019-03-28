@@ -1,13 +1,15 @@
 .contact-wrapper{
     display: grid;
+    grid-gap: 50px;
     justify-content: center;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
     padding: 100px;
     padding-top: 100px;
-    max-width: 1170px;
+    width: 100%;
 
     .image{
-        width: 70%;
+        width: 80%;
+        padding: 20px;
 
         img{
             width: 100%;
@@ -18,35 +20,56 @@
     }
 
     .contact-form{
-        padding-left: 20px;
+        margin-right: 300px;
+        padding: 20px;
+        display: grid;
+        align-items: center;
+
+        h1{
+            font-family: $title;
+            text-align: center;
+            padding-bottom: 20px;
+        }
        
         .form-elements{
-            display: grid;
             text-align: center;
-            padding: 20px;
-            width: 100%;
+            padding: 10px;
             
             
             input {
                 width: 50%;
                 padding: 10px;
                 text-align: center;
-                margin: 0 auto;
+                margin: auto;
+                border: 5px solid $text-color;
+                border-radius: 10px;
+                background-color: $grey;
+                font-family: $text;
+    
             }
 
             textarea{
-                width: 100%;
-                height: 100%;
+                width: 90%;
+                height: 150px;
                 padding: 10px;
                 text-align: center; 
+                border: 5px solid $text-color;
+                border-radius: 5px;
+                background-color: $grey;
+                font-family: $text;
+
             }
         }
 
         .btn{
-            background-color: $blue;
+            width:100px;
+            background-color: $text-color;
             margin-top: 20px;
             padding: 10px;
-            
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        
             
         }
         

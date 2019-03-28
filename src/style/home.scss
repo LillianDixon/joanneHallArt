@@ -1,8 +1,14 @@
 .home{
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     width: 74%;
     margin-top: 50px;
-    padding-left: 100px;
+    padding-left: 200px;
+
+    h1{
+        font-family: $title;
+        color: $gold;
+        justify-self: center;
+    }
 }

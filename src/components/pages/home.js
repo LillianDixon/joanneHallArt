@@ -5,6 +5,7 @@ export default function(){
     return(
         <div className="home">
             <img src={JHLogo}/>
+            <h1>Joanne Hall Art</h1>
         </div>
              
     )

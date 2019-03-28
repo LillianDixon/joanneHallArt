@@ -17,30 +17,11 @@ export default class Contact extends Component{
             error: null
         }
 
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e){
-        this.setState({
-            [e.target.name]: e.target.value 
-        })
-    }
-
     handleSubmit(e){
-        e.preventDefault();
-        axios({
-          method: 'post',
-          url: `${API_PATH}`,
-          headers: { 'content-type': 'application/json' },
-          data: this.state
-        })
-          .then(result => {
-            this.setState({
-              mailSent: result.data.sent
-            })
-          })
-          .catch(error => this.setState({ error: error.message }));
+       console.log('sent message')
     }
 
     render(){
@@ -50,14 +31,14 @@ export default class Contact extends Component{
                     <img src={Sunflower} />
                 </div>
                 <div className="contact-form">
-                    <form onSubmit={this.handleSubmit}>
+                    <h1>CONTACT ME</h1>
+                    <form>
 
                         <div className="form-elements">
                             <input
                             type="text"
                             name="name"
                             placeholder="Your Name"
-                            onChange={e => this.setState({ name: e.target.value })}
                             />
                         </div>
 
@@ -66,9 +47,6 @@ export default class Contact extends Component{
                             type="email"
                             name="email"
                             placeholder="Your email"
-                            onClick={this.handleChange}
-                            onChange={e => this.setState({ 
-                            email: e.target.value })}
                             />
                         </div>
                         
@@ -77,7 +55,6 @@ export default class Contact extends Component{
                             type="text"
                             subject="subject"
                             placeholder="Subject"
-                            onChange={e => this.setState({ subject: e.target.value })}
                             />
                         </div>
                         
@@ -86,8 +63,6 @@ export default class Contact extends Component{
                             type="text"
                             name="message"
                             placeholder="Your Message"
-                            onChange={e => this.setState({ message: e.target.value })}
-                            value={this.state.message}
                             />
                         </div>
                                             

@@ -1,8 +1,21 @@
 @import "variables.scss";
+@import "app.scss";
 @import "navbar.scss";
 @import "footer.scss";
 @import "home.scss";
 @import "about.scss";
 @import "artwork.scss";
+@import "artwork-container.scss";
 @import "auth.scss";
 @import "contact.scss";
+@import "artwork-detail.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100vh;
+    background-color: $white;
+}

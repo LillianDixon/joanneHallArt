@@ -1,0 +1,7 @@
+.artwork-items-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem;
+    grid-auto-flow: row;
+    padding: 50px;
+}

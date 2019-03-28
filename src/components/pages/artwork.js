@@ -8,7 +8,11 @@ import Kfc from "../../../static/assets/images/kfc.jpg";
 import Porcupine from "../../../static/assets/images/porcupine.jpg";
 import Sunflower from "../../../static/assets/images/sunflower.jpg";
 
+import ArtworkItem from "../artwork/artwork-items";
+import ArtworkContainer from '../artwork/artwork-container';
+
 export default function(){
+
     return(
         // TODO
         // make the art pieces more dynamic
@@ -19,12 +23,13 @@ export default function(){
                     <h2>Present Projects</h2>
                         <div className="two-column-wrapper">
                             <div className="art">
+                                {/* <ArtworkContainer /> */}
                                 <img src={Flowers} />
-                                <p>Title</p>
+                                <a href="./artwork-detail">Title</a>
                             </div>
                             <div className="art">
                                 <img src={ChinaWorker} />
-                                <p>Title</p>
+                                <a href="./artwork-detail">Title</a>
                             </div>
                         </div>
                 </div>
@@ -32,28 +37,30 @@ export default function(){
                     <h2>Past Projects</h2>
                         <div className="two-column-wrapper">
                         <div className="art">
+                                {/* <ArtworkContainer /> */}
+
                             <img src={Bunny} />
-                            <p>Title</p>
+                            <a href="./artwork-detail">Title</a>
                         </div>
                         <div className="art">
                             <img src={Duck} />
-                            <p>Title</p>
+                            <a href="./artwork-detail">Title</a>
                         </div>
                         <div className="art">
                             <img src={Porcupine} />
-                            <p>Title</p>
+                            <a href="./artwork-detail">Title</a>
                         </div>
                         <div className="art">
                             <img src={HorseShoe} />
-                            <p>Title</p>
+                            <a href="./artwork-detail">Title</a>
                         </div>
                         <div className="art">
                             <img src={Kfc} />
-                            <p>Title</p>
+                            <a href="./artwork-detail">Title</a>
                         </div>
                         <div className="art">
                             <img src={Sunflower} />
-                            <p>Title</p>
+                            <a href="./artwork-detail">Title</a>
                         </div>
                         </div>
                 </div>
