@@ -1,5 +1,6 @@
 // webpack plugins
 const SplitChunksPlugin = require('webpack/lib/optimize/SplitChunksPlugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: {
@@ -39,6 +40,7 @@ module.exports = {
   },
 
   plugins: [
+    new Dotenv(),
     new SplitChunksPlugin({
       name: ['app', 'vendor'],
       minChunks: Infinity,

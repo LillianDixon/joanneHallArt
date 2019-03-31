@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Bunny from "../../../static/assets/images/bunny.jpg";
-import ChinaWorker from "../../../static/assets/images/chinaWorker.jpg";
 import Duck from "../../../static/assets/images/duck.jpg";
 import Flowers from "../../../static/assets/images/flowers.jpg";
 import HorseShoe from "../../../static/assets/images/horseShoe.jpg";
@@ -25,11 +24,7 @@ export default function(){
                             <div className="art">
                                 {/* <ArtworkContainer /> */}
                                 <img src={Flowers} />
-                                <a href="./artwork-detail">Title</a>
-                            </div>
-                            <div className="art">
-                                <img src={ChinaWorker} />
-                                <a href="./artwork-detail">Title</a>
+                                <a href="./artworkPage">Title</a>
                             </div>
                         </div>
                 </div>
@@ -40,27 +35,27 @@ export default function(){
                                 {/* <ArtworkContainer /> */}
 
                             <img src={Bunny} />
-                            <a href="./artwork-detail">Title</a>
+                            <a href="./artworkPage">Title</a>
                         </div>
                         <div className="art">
                             <img src={Duck} />
-                            <a href="./artwork-detail">Title</a>
+                            <a href="./artworkPage">Title</a>
                         </div>
                         <div className="art">
                             <img src={Porcupine} />
-                            <a href="./artwork-detail">Title</a>
+                            <a href="./artworkPage">Title</a>
                         </div>
                         <div className="art">
                             <img src={HorseShoe} />
-                            <a href="./artwork-detail">Title</a>
+                            <a href="./artworkPage">Title</a>
                         </div>
                         <div className="art">
                             <img src={Kfc} />
-                            <a href="./artwork-detail">Title</a>
+                            <a href="./artworkPage">Title</a>
                         </div>
                         <div className="art">
                             <img src={Sunflower} />
-                            <a href="./artwork-detail">Title</a>
+                            <a href="./artworkPage">Title</a>
                         </div>
                         </div>
                 </div>

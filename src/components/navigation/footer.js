@@ -30,7 +30,7 @@ export default function(){
                 <SocialIcon url="https://www.facebook.com/joannehallart/" />
             </div>
             <div className="social-media-link">
-                <SocialIcon url="https://www.instagram.com" />
+                <SocialIcon url="https://www.instagram.com/joanneleehall/?hl=en" />
             </div>
                 
             </div>
