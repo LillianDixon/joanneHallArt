@@ -26,7 +26,7 @@ export default class ManagerForm extends Component {
     }
 
     postDelete(){
-        fetch(`http://127.0.0.1:5000/delete_current/${props.id}`, {
+        fetch(`https://joanne-hall-art-api.herokuapp.com/delete_current/${props.id}`, {
             method: 'DELETE',
             headers: {
                 "Content=type": "application/json"
@@ -88,6 +88,7 @@ export default class ManagerForm extends Component {
         let title = this.state.title
         let description = this.state.description
         let img_url = this.handleImageUpload(this.state.uploadedFileCloudinaryUrl)
+        let category = this.state.category
 
         
 

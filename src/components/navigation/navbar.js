@@ -1,9 +1,7 @@
 import React from 'react';
-import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Cookies from 'js-cookie';
 
 const Navbar = props => {
     const dynamicLink = (route, linkText) => {
@@ -18,15 +16,15 @@ const Navbar = props => {
   
     const handleSignOut = (event) => {
       event.preventDefault();
-          if (response.status === 200) {
             props.handleSuccessfulLogout();
-          }
+            localStorage.removeItem('loggedInStatus')
+            window.location.reload()
     };  
     return(
         <div className="navbar">
             <div className="right-side">
                 <div className="sign-out">
-                  {props.loggedInStatus === "LOGGED_IN" ? (
+                {localStorage.getItem('loggedInStatus') ? (
                     <a onClick={handleSignOut}>
                       <FontAwesomeIcon icon="sign-out-alt" />
                     </a>
@@ -34,7 +32,7 @@ const Navbar = props => {
                 </div>
                 
                 <div className="siteManager">
-                    {props.loggedInStatus === "LOGGED_IN" ? (
+                    {localStorage.getItem('loggedInStatus') ? (
                     dynamicLink("/siteManager", "Site Manager")
                     ) : null}
                 </div>

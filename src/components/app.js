@@ -35,52 +35,36 @@ export default class App extends Component {
 }
 
 handleSuccessfulLogin() {
-  this.setState({
-    loggedInStatus: "LOGGED_IN"
-  });
+    localStorage.setItem('loggedInStatus', true)
 }
 
 handleUnsuccessfulLogin() {
-  this.setState({
-    loggedInStatus: "NOT_LOGGED_IN"
-  });
+  console.log('logged in')
 }
 
 handleSuccessfulLogout() {
-  this.setState({
-    loggedInStatus: "NOT_LOGGED_IN"
-  });
+  console.log("logged out")
 }
 
-checkLoginStatus() {
-  return axios
-    .get("https://api.devcamp.space/logged_in", {
-      withCredentials: true
-    })
-    .then(response => {
-      const loggedIn = response.data.logged_in;
-      const loggedInStatus = this.state.loggedInStatus;
+// checkLoginStatus() {
+//       const loggedInStatus = localStorage.getItem('loggedInStatus');
 
-      if (loggedIn && loggedInStatus === "LOGGED_IN") {
-        return loggedIn;
-      } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
-        this.setState({
-          loggedInStatus: "LOGGED_IN"
-        });
-      } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
-        this.setState({
-          loggedInStatus: "NOT_LOGGED_IN"
-        });
-      }
-    })
-    .catch(error => {
-      console.log("Error", error);
-    });
-}
+//       if (loggedIn && loggedInStatus === true) {
+//         return loggedIn;
+//       } else if (loggedIn && loggedInStatus === false) {
+//         this.setState({
+//           loggedInStatus: true
+//         });
+//       } else if (!loggedIn && loggedInStatus === true) {
+//         this.setState({
+//           loggedInStatus: false
+//         });
+//       }
+// }
 
-componentDidMount() {
-  this.checkLoginStatus();
-}
+// componentDidMount() {
+//   this.checkLoginStatus();
+// }
 
 authorizedPages() {
   return [<Route key="siteManager" path="/siteManager" component={SiteManager} />];
@@ -123,7 +107,7 @@ authorizedPages() {
                     />
                   )}
                 />
-                {this.state.loggedInStatus === "LOGGED_IN" ? (
+                {localStorage.getItem('loggedInStatus') ? (
                   this.authorizedPages()
                 ) : null}
                 <Route

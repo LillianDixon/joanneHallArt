@@ -13,7 +13,7 @@ export default class artworkPage extends Component {
         const{id} = this.props.match.params
         console.log(id)
 
-        fetch(`http://127.0.0.1:5000/current/${this.props.id}`, {
+        fetch(`https://joanne-hall-art-api.herokuapp.com/current/${this.props.id}`, {
             method:"GET",
             headers: {
                 'accepts': 'application/json',
