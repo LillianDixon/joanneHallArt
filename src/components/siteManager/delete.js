@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Delete(props){
     function postDelete(){
-        fetch(`http://127.0.0.1:5000/delete_current/${props.id}`, {
+        fetch(`https://joanne-hall-art-api.herokuapp.com/delete_current/${props.id}`, {
             method: 'DELETE',
             headers: {
                 "Content=type": "application/json"

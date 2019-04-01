@@ -46,51 +46,52 @@ export default class ManagerForm extends Component {
    //     this.handleImageUpload(files[0])
     }
 
-    // handleImageUpload(file){
-    //     // let upload = request.post(CLOUDINARY_UPLOAD_URL)
-    //     //                     .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-    //     //                     .field('file', file);
+    handleImageUpload(file){
+        let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                            .field('file', file);
 
+        upload.end((err, response) => {
+            if (err){
+                console.log(err)
+            }
+            if (response.body.secure_url !== '') {
+                this.setState({
+                    uploadedFileCloudinaryUrl: response.body.secure_url
+                })
+                return response.body.secure_url
+            }
+        })
+    }
+
+    // handleImageUpload(props){
+    //     let upload = request.post(CLOUDINARY_UPLOAD_URL)
+    //                         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+    //                         .field('file', this.state.uploadedFile);
+                            
     //     upload.end((err, response) => {
     //         if (err){
     //             console.log(err)
     //         }
     //         if (response.body.secure_url !== '') {
     //             this.setState({
-    //                 uploadedFileCloudinaryUrl: response.body.secure_url
+    //                 img_url: response.body.secure_url
     //             })
-    //             return response.body.secure_url
+    //             return props.response.body.secure_url
     //         }
     //     })
     // }
 
-
     handleSubmit(event){
         event.preventDefault();
-        let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-                            .field('file', this.state.uploadedFile);
-                            
-        upload.end((err, response) => {
-            if (err){
-                console.log(err)
-            }
-            if (response.body.secure_url !== '') {
-                this.state.img_url=response.body.secure_url
-                this.setState({
-                    img_url: response.body.secure_url
-                })
-                return response.body.secure_url
-            }
-        })
 
         let title = this.state.title
         let description = this.state.description
-        let img_url = this.state.img_url
+        let img_url = this.handleImageUpload(this.state.uploadedFileCloudinaryUrl)
 
         
 
-        fetch("http://127.0.0.1:5000/Current/input",{
+        fetch(`https://joanne-hall-art-api.herokuapp.com/${category}/input`,{
             method: 'post',
             headers: {
                 "Content-Type": "application/json"

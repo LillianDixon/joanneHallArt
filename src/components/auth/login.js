@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
+
+const EMAIL = process.env.REACT_APP_EMAIL
+const PASSWORD = process.env.REACT_APP_PASSWORD
 
 export default class Login extends Component {
     constructor(props){
@@ -23,32 +25,15 @@ export default class Login extends Component {
       }
 
     handleSubmit(event) {
-        axios.post("https://api.devcamp.space/sessions",
-            {
-                client: {
-                    email: this.state.email,
-                    password: this.state.password
-                }
-            },
-            {withCredentials: true }
-        ).then(response => {
-            if(response.data.status === "created"){
-                console.log("you can come in...")
-                this.props.handleSuccessfulAuth();
-            }else{
-                this.setState({
-                    errorText: "Wrong email or password"
-                })
-                this.props.handleUnSuccessfulAuth();
-            }
-        }).catch(error => {
-            this.setState({
-              errorText: "An error occured"
-            })
-            this.props.handleUnSuccessfulAuth();
-        });
+      event.preventDefault();
 
-        event.preventDefault();
+      if(this.state.email === EMAIL && this.state.password === PASSWORD){
+          console.log('you can come in')
+          this.props.handleSuccessfulAuth();
+        }else{
+          console.log('error')
+          this.props.handleUnSuccessfulAuth();
+        }
     }
 
   render() {

@@ -2,7 +2,8 @@ import React from 'react';
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Cookies from 'js-cookie';
 
 const Navbar = props => {
     const dynamicLink = (route, linkText) => {
@@ -15,19 +16,11 @@ const Navbar = props => {
       );
     };
   
-    const handleSignOut = () => {
-      axios
-        .delete("https://api.devcamp.space/logout", { withCredentials: true })
-        .then(response => {
+    const handleSignOut = (event) => {
+      event.preventDefault();
           if (response.status === 200) {
-            props.history.push("/");
             props.handleSuccessfulLogout();
           }
-          return response.data;
-        })
-        .catch(error => {
-          console.log("Error signing out", error);
-        });
     };  
     return(
         <div className="navbar">

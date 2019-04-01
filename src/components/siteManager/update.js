@@ -23,7 +23,7 @@ class Update extends Component {
         let id = this.state.id;
         let title = this.state.title;
         let description = this.state.description;
-        fetch(`http://127.0.0.1:5000/update_current${id}`, {
+        fetch(`https://joanne-hall-art-api.herokuapp.com/update_current${id}`, {
             withCredentials: true,
             method: "PUT",
             headers: {
