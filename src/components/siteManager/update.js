@@ -23,8 +23,7 @@ class Update extends Component {
         let id = this.state.id;
         let title = this.state.title;
         let description = this.state.description;
-        fetch(`https://joanne-hall-art-api.herokuapp.com/update_current${id}`, {
-            withCredentials: true,
+        fetch(`https://joanne-hall-art-api.herokuapp.com/update_current/${id}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
@@ -32,7 +31,7 @@ class Update extends Component {
             body: JSON.stringify({title: title, description: description})
         }).then(res => res.json())
         .then(responseData => {return responseData})
-        .then(() => {this.props.history.push('/')})
+        .then(() => {this.props.history.push('/siteManager')})
         .catch(err => console.log(err))
     }
 
@@ -42,18 +41,21 @@ class Update extends Component {
         })
     }
 
-    editPost(){
-        this.setState({id: this.props.ourProp[0]})
-        this.setState({title: this.props.ourProp[1]})
-        this.setState({description: this.props.ourProp[2]})
-        this.setState({img_url: this.props.ourProp[3]})
+    editPost(post){
+        this.setState({id: post[0]})
+        this.setState({title: post[1]})
+        this.setState({description: post[2]})
+        // this.setState({img_url: this.props.ourProp[0][3]})
         this.setState({formHidden: !this.state.formHidden})
+
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.editPost}>Edit Post</button>
+               <button onClick= {() => this.editPost(this.props.rec)}>Edit Post</button>
+               
+
 
                 <form onSubmit={this.handleSubmit} style = {{visibility: this.state.formHidden ? 'hidden' : "visible"}} >
                     <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />

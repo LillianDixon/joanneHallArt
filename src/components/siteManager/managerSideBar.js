@@ -9,8 +9,9 @@ export default class ManagerSideBar extends Component {
         super(props)
 
         this.state={
-            current: []
+            current: [],
         }
+        
     }
 
     componentDidMount(){
@@ -26,26 +27,28 @@ export default class ManagerSideBar extends Component {
         .catch(err => {
             console.log("Fetch error" + err)
         })
+        
     }
+
+  
+
 
     render() {
         return (
             <div>
                 <h1>Posts</h1>
-                {this.state.current.map((post) => (
+                {this.state.current.map((post, index) => (
                     <div key={post[0]}>
                         <Link to={`../artworkPage`}>{post[1]}</Link>
                         <h3>Description: {post[2]}</h3>
                         <div>{post[3]}</div>
                         <Delete id={post[0]}/>
-                        <Update
-                        id={post[0]}
-                        ourProp={this.state.current}
+                        <Update rec={post} 
                         />
 
                     </div>
                 ))}
-                
+
             </div>
         );
     }

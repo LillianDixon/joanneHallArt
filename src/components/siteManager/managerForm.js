@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import uuid from 'uuid';
 
 
 const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET
@@ -17,94 +18,128 @@ export default class ManagerForm extends Component {
             title: "",
             category: "current",
             description: "",
-            img_url: ''
+            img_url: '',
+            imgSrc: null
         }
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onImageDrop = this.onImageDrop.bind(this);
+        this.secureUrl = this.secureUrl.bind(this);
     }
 
-    postDelete(){
-        fetch(`https://joanne-hall-art-api.herokuapp.com/delete_current/${props.id}`, {
-            method: 'DELETE',
-            headers: {
-                "Content=type": "application/json"
-            }
-        })
-        .then(respnse => {return Response.json()})
-        .catch(err => {
-            console.log("Fetch error" + err)
-        })
-    }
+    // postDelete(){
+    // if(category === "current"){
+    //         fetch(`https://joanne-hall-art-api.herokuapp.com/delete_current/${props.id}`, {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 "Content-type": "application/json"
+    //             }
+    //         })
+    //         .then(response => {return response.json()})
+    //         .catch(err => {
+    //             console.log("Fetch error" + err)
+    //         })
+    //     }else if(category === "past"){
+    //         fetch(`https://joanne-hall-art-api.herokuapp.com/delete_past/${props.id}`, {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 "Content-type": "application/json"
+    //             }
+    //         })
+    //         .then(response => {return response.json()})
+    //         .catch(err => {
+    //             console.log("Fetch error" + err)
+    //         })
+    //     }
+    // }
     
 
     onImageDrop(files){
         this.setState({
             uploadedFile: files[0]
         })
-   //     this.handleImageUpload(files[0])
+        const currentFile = files[0]
+        const myFileItemReader = new FileReader()
+        myFileItemReader.addEventListener("load", () => {
+            this.setState({
+                imgSrc: myFileItemReader.result
+            })
+        }, false)
+        myFileItemReader.readAsDataURL(currentFile)
     }
 
-    handleImageUpload(file){
-        let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-                            .field('file', file);
-
+    secureUrl = (upload) => {
         upload.end((err, response) => {
             if (err){
                 console.log(err)
             }
-            if (response.body.secure_url !== '') {
-                this.setState({
-                    uploadedFileCloudinaryUrl: response.body.secure_url
+           if (response.body.secure_url !== '') {
+           this.setState({
+                uploadedFileCloudinaryUrl: response.body.secure_url
+            
                 })
-                return response.body.secure_url
-            }
+
+                console.log(this)
+           }
         })
+        console.log(this)
+        console.log(this.state.uploadedFileCloudinaryUrl)
     }
 
-    // handleImageUpload(props){
-    //     let upload = request.post(CLOUDINARY_UPLOAD_URL)
-    //                         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-    //                         .field('file', this.state.uploadedFile);
-                            
-    //     upload.end((err, response) => {
-    //         if (err){
-    //             console.log(err)
-    //         }
-    //         if (response.body.secure_url !== '') {
-    //             this.setState({
-    //                 img_url: response.body.secure_url
-    //             })
-    //             return props.response.body.secure_url
-    //         }
-    //     })
-    // }
+    handleImageUpload = () => {
+        let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                            .field('file', this.state.uploadedFile);
+        this.secureUrl(upload)
+        
+        // console.log(this.state.uploadedFileCloudinaryUrl)
+    }
 
     handleSubmit(event){
         event.preventDefault();
 
-        let title = this.state.title
-        let description = this.state.description
-        let img_url = this.handleImageUpload(this.state.uploadedFileCloudinaryUrl)
-        let category = this.state.category
-
+        // let title = this.state.title
+        // let description = this.state.description
+        // let category = this.state.category
+    //    let img_url = this.handleImageUpload()
+        this.handleImageUpload()
         
 
-        fetch(`https://joanne-hall-art-api.herokuapp.com/${category}/input`,{
-            method: 'post',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({title, description, img_url})
-        })
-        .then(response => {return response.json();})
-        .then(responseData=> {console.log (responseData)
-            return responseData})
-        .catch(err => {
-            console.log("Fetch error" + err)
-        })
+        // if(category === "current"){
+
+        //     fetch(`https://joanne-hall-art-api.herokuapp.com/current/input`,{
+        //         method: 'post',
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify({title, description, img_url})
+        //     })
+        //     .then(response => {return response.json();})
+        //     .then(responseData=> {console.log (responseData)
+        //         return responseData})
+        //     .catch(err => {
+        //         console.log("Fetch error" + err)
+        //     })
+        // } else if(category === "past"){
+            
+
+        //     fetch(`https://joanne-hall-art-api.herokuapp.com/past/input`,{
+        //         method: 'post',
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify({title, description, img_url})
+        //     })
+        //     .then(response => {return response.json();})
+        //     .then(responseData=> {console.log (responseData)
+        //         return responseData})
+        //     .catch(err => {
+        //         console.log("Fetch error" + err)
+        //     })
+        // }else{
+        //     console.log("fetch error")
+        // }
     }
 
     
@@ -115,9 +150,10 @@ export default class ManagerForm extends Component {
   }
 
     render() {
+        const {imgSrc} = this.state
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="form-wrapper">
+                <form onSubmit={this.handleSubmit} className="contact-form">
                     <input
                         type="text"
                         name="title"
@@ -143,16 +179,21 @@ export default class ManagerForm extends Component {
                     />
                     <div className='photos'>
                           <div>
-                              <Dropzone
-                                  onDrop={this.onImageDrop}
-                                  multiple={false}
-                                  accept="image/jpg,image/jpeg,image/png"
-                                  name="img_url"
-                                  vlaue={this.state.img_url}
-                                  onChange={this.handleChange}
-                              >
-                                  <div>Drop and image or click to upload a picture</div>
-                              </Dropzone>
+                              {imgSrc !== null ? 
+                                <div>
+                                    <img src={imgSrc} />
+                                </div> :
+                                <Dropzone
+                                    onDrop={this.onImageDrop}
+                                    multiple={false}
+                                    accept="image/jpg,image/jpeg,image/png"
+                                    name="img_url"
+                                    vlaue={this.state.img_url}
+                                    onChange={this.handleChange}
+                                >
+                                    <div>Drop and image or click to upload a picture</div>
+                                </Dropzone>
+                              }
                           </div>
                           <div>
                               {this.state.uploadedFileCloudinaryUrl === '' ? null : 

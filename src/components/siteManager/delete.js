@@ -5,7 +5,7 @@ export default function Delete(props){
         fetch(`https://joanne-hall-art-api.herokuapp.com/delete_current/${props.id}`, {
             method: 'DELETE',
             headers: {
-                "Content=type": "application/json"
+                "Content-type": "application/json"
             }
         })
         .then(response => {return response.json()})

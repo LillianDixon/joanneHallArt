@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import axios from "axios";
 import Sunflower from "../../../static/assets/images/sunflower.jpg";
+// import mailgun.messages from '../email/email';
 
 
 export default class Contact extends Component{
@@ -17,11 +18,28 @@ export default class Contact extends Component{
             error: null
         }
 
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
     handleSubmit(e){
-       console.log('sent message')
+       e.preventDefault()
+       console.log(mailgun.message())
+
+       const{name, email, subject, message} = this.state
+
+    //    const form = await axios.post('/api/form', {
+    //        name,
+    //        email,
+    //        subject,
+    //        message
+    //    })
     }
 
     render(){
@@ -32,13 +50,14 @@ export default class Contact extends Component{
                 </div>
                 <div className="contact-form">
                     <h1>CONTACT ME</h1>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
 
                         <div className="form-elements">
                             <input
                             type="text"
                             name="name"
                             placeholder="Your Name"
+                            onChange={this.handleChange}
                             />
                         </div>
 
@@ -47,6 +66,7 @@ export default class Contact extends Component{
                             type="email"
                             name="email"
                             placeholder="Your email"
+                            onChange={this.handleChange}
                             />
                         </div>
                         
@@ -55,6 +75,7 @@ export default class Contact extends Component{
                             type="text"
                             subject="subject"
                             placeholder="Subject"
+                            onChange={this.handleChange}
                             />
                         </div>
                         
@@ -63,6 +84,7 @@ export default class Contact extends Component{
                             type="text"
                             name="message"
                             placeholder="Your Message"
+                            onChange={this.handleChange}
                             />
                         </div>
                                             
