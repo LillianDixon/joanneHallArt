@@ -25,34 +25,11 @@ export default class ManagerForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onImageDrop = this.onImageDrop.bind(this);
-        this.secureUrl = this.secureUrl.bind(this);
+
+        
     }
 
-    // postDelete(){
-    // if(category === "current"){
-    //         fetch(`https://joanne-hall-art-api.herokuapp.com/delete_current/${props.id}`, {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 "Content-type": "application/json"
-    //             }
-    //         })
-    //         .then(response => {return response.json()})
-    //         .catch(err => {
-    //             console.log("Fetch error" + err)
-    //         })
-    //     }else if(category === "past"){
-    //         fetch(`https://joanne-hall-art-api.herokuapp.com/delete_past/${props.id}`, {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 "Content-type": "application/json"
-    //             }
-    //         })
-    //         .then(response => {return response.json()})
-    //         .catch(err => {
-    //             console.log("Fetch error" + err)
-    //         })
-    //     }
-    // }
+
     
 
     onImageDrop(files){
@@ -69,77 +46,65 @@ export default class ManagerForm extends Component {
         myFileItemReader.readAsDataURL(currentFile)
     }
 
-    secureUrl = (upload) => {
-        upload.end((err, response) => {
-            if (err){
-                console.log(err)
-            }
-           if (response.body.secure_url !== '') {
-           this.setState({
-                uploadedFileCloudinaryUrl: response.body.secure_url
-            
-                })
-
-                console.log(this)
-           }
-        })
-        console.log(this)
-        console.log(this.state.uploadedFileCloudinaryUrl)
-    }
-
-    handleImageUpload = () => {
-        let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-                            .field('file', this.state.uploadedFile);
-        this.secureUrl(upload)
-        
-        // console.log(this.state.uploadedFileCloudinaryUrl)
-    }
-
     handleSubmit(event){
         event.preventDefault();
 
-        // let title = this.state.title
-        // let description = this.state.description
-        // let category = this.state.category
-    //    let img_url = this.handleImageUpload()
-        this.handleImageUpload()
+        let title = this.state.title 
+        let description = this.state.description
+        let category = this.state.category
         
-
-        // if(category === "current"){
-
-        //     fetch(`https://joanne-hall-art-api.herokuapp.com/current/input`,{
-        //         method: 'post',
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify({title, description, img_url})
-        //     })
-        //     .then(response => {return response.json();})
-        //     .then(responseData=> {console.log (responseData)
-        //         return responseData})
-        //     .catch(err => {
-        //         console.log("Fetch error" + err)
-        //     })
-        // } else if(category === "past"){
+        let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                            .field('file', this.state.uploadedFile);
+            upload.end((err, response) => {
+                if (err){
+                    console.log(err)
+                }
+                if (response.body.secure_url !== '') {
+                    this.setState({
+                        img_url: response.body.secure_url
+                    
+                    })
+                    let img_url = this.state.img_url
+                    
+                
+                    if(category === "current"){
             
-
-        //     fetch(`https://joanne-hall-art-api.herokuapp.com/past/input`,{
-        //         method: 'post',
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify({title, description, img_url})
-        //     })
-        //     .then(response => {return response.json();})
-        //     .then(responseData=> {console.log (responseData)
-        //         return responseData})
-        //     .catch(err => {
-        //         console.log("Fetch error" + err)
-        //     })
-        // }else{
-        //     console.log("fetch error")
-        // }
+                        fetch(`https://joanne-hall-art-api.herokuapp.com/current/input`,{
+                            method: 'post',
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({title, description, img_url})
+                        })
+                        .then(response => {return response.json();})
+                        .then(responseData=> {console.log (responseData)
+                            return responseData})
+                        .catch(err => {
+                            console.log("Fetch error" + err)
+                        })
+                    } else if(category === "past"){
+                        
+            
+                        fetch(`https://joanne-hall-art-api.herokuapp.com/past/input`,{
+                            method: 'post',
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({title, description, img_url})
+                        })
+                        .then(response => {return response.json();})
+                        .then(responseData=> {console.log (responseData)
+                            return responseData})
+                        .catch(err => {
+                            console.log("Fetch error" + err)
+                        })
+                    }else{
+                        console.log("fetch error")
+                    }
+                }
+            })
+        
     }
 
     
@@ -152,16 +117,28 @@ export default class ManagerForm extends Component {
     render() {
         const {imgSrc} = this.state
         return (
-            <div className="form-wrapper">
-                <form onSubmit={this.handleSubmit} className="contact-form">
+            <div className="upload-form-wrapper">
+                <h1>New Post</h1>
+                <form onSubmit={this.handleSubmit} className="upload-form">
                     <input
+                        className="upload-element"
                         type="text"
                         name="title"
                         placeholder="Title"
                         value={this.state.title}
                         onChange={this.handleChange}
                     />
+                    <input
+                        className="upload-element"
+                        type="text"
+                        name="description"
+                        placeholder="Description"
+                        
+                        value={this.state.description}
+                        onChange={this.handleChange}
+                    />
                     <select
+                        className="upload-select"
                         name="category"
                         vlaue={this.state.category}
                         onChange={this.handleChange}
@@ -169,20 +146,12 @@ export default class ManagerForm extends Component {
                         <option value="current">Current</option>
                         <option value="past">Past</option>
                     </select>
-                    <input
-                        type="text"
-                        name="description"
-                        placeholder="description"
-                        
-                        value={this.state.description}
-                        onChange={this.handleChange}
-                    />
-                    <div className='photos'>
+                    <div className='img-upload'>
                           <div>
                               {imgSrc !== null ? 
                                 <div>
-                                    <img src={imgSrc} />
-                                </div> :
+                                    <img src={imgSrc}  style={{width: '325px'}}/>
+                                </div > :
                                 <Dropzone
                                     onDrop={this.onImageDrop}
                                     multiple={false}
@@ -191,7 +160,7 @@ export default class ManagerForm extends Component {
                                     vlaue={this.state.img_url}
                                     onChange={this.handleChange}
                                 >
-                                    <div>Drop and image or click to upload a picture</div>
+                                    <div >Drop and image or click to upload a picture</div>
                                 </Dropzone>
                               }
                           </div>

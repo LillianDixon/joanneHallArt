@@ -1,0 +1,42 @@
+@mixin manager-sidebar {
+    
+    text-align: center;
+
+    @mixin title{
+        text-decoration: none;
+        font-family: $text;
+        border-bottom: 1px solid transparent;
+        color: $text-color;
+        font-size: 1.5rem;
+        &:hover{
+            border-bottom: 1px solid black;
+            color: black;
+            transition: 0.5s;
+        }
+    }
+    h3{
+        color: $text-color;
+        font-display: $text;
+        padding: 20px;
+    }
+    
+    @mixin delete-update{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        
+        a{
+            text-align: center;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: $text-color;
+        }
+        
+        @mixin update{
+            text-align: center;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: $text-color;
+        }
+    }
+}

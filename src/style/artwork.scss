@@ -8,7 +8,7 @@
         padding: 40px;
     }
 
-    .projects{
+    .artwork-info-wrapper{
         h2{
             display: flex;
             justify-content: center;
@@ -23,14 +23,15 @@
             padding: 200px;
             padding-top: 50px;
             
-            .art{
+            .individual-artwork{
                 grid-template-rows: repeat 4;
-                background-color: $grey;
                 display: flex;
                 flex-direction: column;
+                background-color: $grey;
                 justify-content: center;
                 align-items: center;
                 border: 10px solid $text-color;
+                padding-top: 10px;
                 
 
                 img{

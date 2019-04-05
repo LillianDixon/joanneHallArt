@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class Update extends Component {
     constructor(props){
@@ -10,6 +11,7 @@ class Update extends Component {
             title: '',
             description: '',
             img_url: '',
+            category: 'current',
             formHidden: true
         }
         
@@ -45,7 +47,7 @@ class Update extends Component {
         this.setState({id: post[0]})
         this.setState({title: post[1]})
         this.setState({description: post[2]})
-        // this.setState({img_url: this.props.ourProp[0][3]})
+        // this.setState({img_url: post[3]})
         this.setState({formHidden: !this.state.formHidden})
 
     }
@@ -53,13 +55,25 @@ class Update extends Component {
     render() {
         return (
             <div>
-               <button onClick= {() => this.editPost(this.props.rec)}>Edit Post</button>
-               
+               {/* <button onClick= {() => this.editPost(this.props.rec)}>Edit Post</button> */}
+               <a
+              className="action-icon"
+              onClick={() => this.editPost(this.props.rec)}>
+              <FontAwesomeIcon icon="edit" />
+                </a>
 
 
                 <form onSubmit={this.handleSubmit} style = {{visibility: this.state.formHidden ? 'hidden' : "visible"}} >
                     <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
                     <textarea type="textarea" name="description" value={this.state.description} onChange={this.handleChange} />
+                    {/* <select
+                        name="category"
+                        vlaue={this.state.category}
+                        onChange={this.handleChange}
+                    >
+                        <option value="current">Current</option>
+                        <option value="past">Past</option>
+                    </select> */}
                     <input type="submit" value="submit" />
                 </form>
                 

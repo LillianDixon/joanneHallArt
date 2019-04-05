@@ -13,7 +13,8 @@ import Navbar from "./navigation/navbar";
 import Footer from "./navigation/footer";
 import Auth from "./pages/auth";
 import SiteManager from "./pages/siteManager";
-import ArtworkPage from "./pages/artworkPage";
+import ArtworkCurrent from "./pages/artworkCurrent";
+import ArtworkPast from "./pages/artworkPast";
 import NoMatch from "./pages/no-match";
 
 library.add(faTrash, faSignOutAlt, faEdit, faSpinner);
@@ -96,7 +97,8 @@ authorizedPages() {
                 <Route path="/about" component={About} />
                 <Route path="/artwork" component={Artwork} />
                 <Route path="/contact" component={Contact} />
-                <Route path="/artworkPage" component={ArtworkPage} />
+                <Route path="/artworkCurrent/:id" component={ArtworkCurrent} />
+                <Route path="/artworkPast/:id" component={ArtworkPast} />
                 <Route
                   path="/auth"
                   render={props => (

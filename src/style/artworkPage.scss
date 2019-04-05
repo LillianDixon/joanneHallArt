@@ -3,5 +3,34 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    text-align: center;
+    padding-bottom: 150px;
+
+    h1{
+        font-family: $title;
+        color: $text-color;
+        font-weight: 900;
+        padding: 20px;
+    }
+
+    .artworkPage-title{
+        font-family: $text;
+        color: $text-color;
+        padding: 20px;
+        font-size: 2rem;
+    }
+
+    img{
+        border: 15px solid black;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        padding: 20px;
+        background-color: $white;
+    }
+
+    .artworkPage-description{
+        font-family: $text;
+        color: $text-color;
+        padding: 20px;
+        font-size: 1.5rem;
+    }
 }

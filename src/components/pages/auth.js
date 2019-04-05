@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Login from "../auth/login";
-import Flowers from "../../../static/assets/images/flowers.jpg";
+import chinaWorker from "../../../static/assets/images/chinaWorker.jpg";
 
 export default class Auth extends Component {
     constructor(props){
@@ -24,7 +24,7 @@ export default class Auth extends Component {
       return (
           <div className="auth-page-wrapper">
            <div className="left-column">
-                <img src={Flowers} />
+                <img src={chinaWorker} />
             </div>
             <div className="right-column">
                 <Login 

@@ -1,0 +1,52 @@
+.upload-form-wrapper{
+    padding-left: 100px;
+
+    h1{
+        font-family: $title;
+        text-align: center;
+    }
+
+    .upload-form{
+        display: grid;
+
+        .upload-element{
+            padding: 15px;
+            margin: 20px;
+            text-align: center;
+            font-family: $text;
+            background-color: $grey;
+            border-radius: 10px;
+            border: 5px solid $text-color;
+            font-weight: 900;
+        }
+
+        .upload-select{
+            width: 100px;
+            justify-content: center;
+            padding: 5px;
+            font-family: $text;
+            margin: 20px;
+            background-color: $grey;
+            border-radius: 10px;
+            border: 5px solid $text-color;
+            font-weight: 900;
+            color: $text-color;
+        }
+
+        .img-upload{
+            font-family: $text;
+            text-align: center;
+        }
+
+        button{
+            width:100px;
+            background-color: $text-color;
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            
+        }
+    }
+}

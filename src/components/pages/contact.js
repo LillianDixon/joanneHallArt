@@ -1,8 +1,6 @@
 
 import React, {Component} from 'react';
-import axios from "axios";
 import Sunflower from "../../../static/assets/images/sunflower.jpg";
-// import mailgun.messages from '../email/email';
 
 
 export default class Contact extends Component{
@@ -19,27 +17,31 @@ export default class Contact extends Component{
         }
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
+        console.log( this)
     }
-
+    
     handleSubmit(e){
-       e.preventDefault()
-       console.log(mailgun.message())
-
-       const{name, email, subject, message} = this.state
-
-    //    const form = await axios.post('/api/form', {
-    //        name,
-    //        email,
-    //        subject,
-    //        message
-    //    })
+        e.preventDefault()
+        console.log(this)
+       fetch(`http://127.0.0.1:5000/email`, {
+           method: 'POST',
+           headers: {
+               'Content-Type': "application/json"
+           },
+           body: JSON.stringify({name: this.state.name, email: this.state.email, subject: this.state.subject, message: this.state.message})
+       })
+        .then(response => {return response.json();})
+        .then(responseData => {console.log(responseData)})
+        .catch(error => {
+            console.log('handlesubmit error' + error)
+        })
     }
 
     render(){
@@ -56,9 +58,10 @@ export default class Contact extends Component{
                             <input
                             type="text"
                             name="name"
-                            placeholder="Your Name"
+                            placeholder="Your Name" 
                             onChange={this.handleChange}
-                            />
+                            value = {this.state.name} 
+                            /> 
                         </div>
 
                         <div className="form-elements">
@@ -67,16 +70,18 @@ export default class Contact extends Component{
                             name="email"
                             placeholder="Your email"
                             onChange={this.handleChange}
-                            />
+                            value = {this.state.email} 
+                            /> 
                         </div>
                         
                         <div className="form-elements">
                             <input
                             type="text"
-                            subject="subject"
+                            name="subject"
                             placeholder="Subject"
                             onChange={this.handleChange}
-                            />
+                            value = {this.state.subject} 
+                            /> 
                         </div>
                         
                         <div className="form-elements">
@@ -85,7 +90,8 @@ export default class Contact extends Component{
                             name="message"
                             placeholder="Your Message"
                             onChange={this.handleChange}
-                            />
+                            value = {this.state.message} 
+                            /> 
                         </div>
                                             
                         <div>

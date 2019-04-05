@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 
-export default class artworkPage extends Component {
+export default class artworkCurrent extends Component {
     constructor(props){
         super(props)
 
         this.state={
-            singlePost: []
+            singlePost: [],
         }
+
     }
 
-    componentDidMount(){
-        const{id} = this.props.match.params
-        console.log(id)
-
-        fetch(`https://joanne-hall-art-api.herokuapp.com/current/${id}`, {
+    componentWillMount(){
+        const {id} = this.props.match.params
+        fetch(`https://joanne-hall-art-api.herokuapp.com/past/${id}`, {
             method:"GET",
             headers: {
                 'accepts': 'application/json',
@@ -25,14 +24,17 @@ export default class artworkPage extends Component {
         .catch(err => {
             console.log("Fetch error", err)
         })
+        
     }
+
 
     render() {
         return (
             <div className="artworkPage-wrapper">
-                <h1>Artwork Detail</h1>
-                <h2>{this.state.singlePost[1]}</h2>
-                <h3>{this.state.singlePost[2]}</h3>
+                <h1>Artwork Past</h1>
+                <div className='artworkPage-title'>{this.state.singlePost[1]}</div>
+                <img src={`${this.state.singlePost[3]}`}/>
+                <div className='artworkPage-description'>{this.state.singlePost[2]}</div>
                 
             </div>
         );

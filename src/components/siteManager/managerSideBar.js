@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-import Delete from './delete';
+import DeleteCurrent from './deleteCurrent';
+import DeletePast from './deletePast';
 import Update from "./update";
 
 export default class ManagerSideBar extends Component {
@@ -10,12 +11,13 @@ export default class ManagerSideBar extends Component {
 
         this.state={
             current: [],
+            past: []
         }
         
     }
 
     componentDidMount(){
-        fetch("https://joanne-hall-art-api.herokuapp.com/current", {
+        fetch("http://127.0.0.1:5000/current", {
             method: 'GET',
             headers: {
                 'accepts': 'application/json',
@@ -27,6 +29,20 @@ export default class ManagerSideBar extends Component {
         .catch(err => {
             console.log("Fetch error" + err)
         })
+
+        
+        fetch("https://joanne-hall-art-api.herokuapp.com/past", {
+            method: 'GET',
+            headers: {
+                'accepts': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {return response.json();})
+        .then(data => {this.setState({past: data})})
+        .catch(err => {
+            console.log("Fetch error" + err)
+        })
         
     }
 
@@ -35,19 +51,41 @@ export default class ManagerSideBar extends Component {
 
     render() {
         return (
-            <div>
+            <div className='sidebar-wrapper'>
                 <h1>Posts</h1>
-                {this.state.current.map((post, index) => (
-                    <div key={post[0]}>
-                        <Link to={`../artworkPage`}>{post[1]}</Link>
-                        <h3>Description: {post[2]}</h3>
-                        <div>{post[3]}</div>
-                        <Delete id={post[0]}/>
-                        <Update rec={post} 
-                        />
+                <div className="current-wrapper">
+                    <h2>Current</h2>
+                    {this.state.current.map((post) => (
+                        <div key={post[0]}>
+                            <Link className="title" to={`../artworkCurrent/${post[0]}`}>{post[1]}</Link>
+                            <h3>{post[2]}</h3>
+                            <img src={post[3]}></img>
+                            <div className="delete-update">
+                            <DeleteCurrent className="delete"  id={post[0]}/>
+                            <Update className="update" rec={post} 
+                            />
+                            </div>
 
-                    </div>
-                ))}
+                        </div>
+                    ))}
+                </div>
+
+                <div className="past-wrapper">
+                    <h2>Past</h2>
+                    {this.state.past.map((post) => (
+                        <div key={post[0]}>
+                            <Link className="title" to={`../artworkPast/${post[0]}`}>{post[1]}</Link>
+                            <h3>{post[2]}</h3>
+                            <img src={post[3]}></img>
+                            <div className="delete-update">
+                            <DeletePast className="delete" id={post[0]}/>
+                            <Update className="update" rec={post} 
+                            />
+                            </div>
+
+                        </div>
+                    ))}
+                </div>
 
             </div>
         );

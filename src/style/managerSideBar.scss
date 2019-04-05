@@ -1,0 +1,108 @@
+.sidebar-wrapper{
+    background-color: $grey;
+    border: 10px solid $text-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 50px;
+    
+    h1{
+        font-family: $title;
+        font-weight: 900;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h2{
+        font-family: $title;
+        text-align: center;
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+
+    .current-wrapper{
+        text-align: center;
+
+        .title{
+            text-decoration: none;
+            font-family: $text;
+            border-bottom: 1px solid transparent;
+            color: $text-color;
+            font-size: 1.5rem;
+            &:hover{
+                border-bottom: 1px solid black;
+                color: black;
+                transition: 0.5s;
+            }
+        }
+        h3{
+            color: $text-color;
+            font-display: $text;
+            padding: 20px;
+        }
+        
+        .delete-update{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 15px;
+            
+            a{
+                text-align: center;
+                cursor: pointer;
+                font-size: 1.5em;
+                color: $text-color;
+            }
+            
+            .update{
+                text-align: center;
+                cursor: pointer;
+                font-size: 1.5em;
+                color: $text-color;
+            }
+        }
+    }
+
+    .past-wrapper{
+        text-align: center;
+
+        .title{
+            text-decoration: none;
+            font-family: $text;
+            border-bottom: 1px solid transparent;
+            color: $text-color;
+
+            &:hover{
+                border-bottom: 1px solid black;
+                color: black;
+                transition: 0.5s;
+            }
+        }
+
+        h3{
+            color: $text-color;
+            font-display: $text;
+            padding: 20px;
+
+        }
+        
+        .delete-update{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 15px;
+            
+            a{
+                text-align: center;
+                cursor: pointer;
+                font-size: 1.5em;
+                color: $text-color;
+            }
+            
+            .update{
+                text-align: center;
+                cursor: pointer;
+                font-size: 1.5em;
+                color: $text-color;
+            }
+        }
+    }
+}
