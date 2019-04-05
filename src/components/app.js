@@ -40,45 +40,18 @@ handleSuccessfulLogin() {
 }
 
 handleUnsuccessfulLogin() {
-  console.log('logged in')
+  console.log('not logged in')
 }
 
 handleSuccessfulLogout() {
   console.log("logged out")
 }
 
-// checkLoginStatus() {
-//       const loggedInStatus = localStorage.getItem('loggedInStatus');
-
-//       if (loggedIn && loggedInStatus === true) {
-//         return loggedIn;
-//       } else if (loggedIn && loggedInStatus === false) {
-//         this.setState({
-//           loggedInStatus: true
-//         });
-//       } else if (!loggedIn && loggedInStatus === true) {
-//         this.setState({
-//           loggedInStatus: false
-//         });
-//       }
-// }
-
-// componentDidMount() {
-//   this.checkLoginStatus();
-// }
 
 authorizedPages() {
   return [<Route key="siteManager" path="/siteManager" component={SiteManager} />];
 }
 
-// getPortfolioItems(){
-//   axios.get("/user?ID=12345")
-//   .then(function(resonse) {
-//     console.log(response);
-//   }).catch(function(error) {
-//     console.log(error);
-//   })
-// }
 
   render() {
     return (
