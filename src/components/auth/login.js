@@ -26,8 +26,8 @@ export default class Login extends Component {
 
     handleSubmit(event) {
       event.preventDefault();
-      console.log(email)
-      console.log(password)
+      console.log(EMAIL)
+      console.log(PASSWORD)
 
       // if(this.state.email === EMAIL && this.state.password === PASSWORD){
       //     console.log('you can come in')
