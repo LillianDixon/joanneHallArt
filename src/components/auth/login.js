@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-const EMAIL = process.env.REACT_APP_EMAIL
-const PASSWORD = process.env.REACT_APP_PASSWORD
+// const EMAIL = process.env.REACT_APP_EMAIL
+// const PASSWORD = process.env.REACT_APP_PASSWORD
 
 export default class Login extends Component {
     constructor(props){
@@ -26,8 +26,8 @@ export default class Login extends Component {
 
     handleSubmit(event) {
       event.preventDefault();
-      console.log(EMAIL)
-      console.log(PASSWORD)
+      console.log(process.env.REACT_APP_EMAIL)
+      console.log(process.env.REACT_APP_PASSWORD)
 
       // if(this.state.email === EMAIL && this.state.password === PASSWORD){
       //     console.log('you can come in')
