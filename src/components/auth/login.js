@@ -32,7 +32,7 @@ export default class Login extends Component {
           this.props.handleSuccessfulAuth();
         }else{
           console.log('error')
-          this.props.handleUnSuccessfulAuth();
+          // this.props.handleUnSuccessfulAuth();
         }
     }
 
