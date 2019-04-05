@@ -26,16 +26,16 @@ export default class Login extends Component {
 
     handleSubmit(event) {
       event.preventDefault();
-      console.log(process.env.REACT_APP_EMAIL)
-      console.log(process.env.REACT_APP_PASSWORD)
+      // console.log(process.env.REACT_APP_EMAIL)
+      // console.log(process.env.REACT_APP_PASSWORD)
 
-      // if(this.state.email === EMAIL && this.state.password === PASSWORD){
-      //     console.log('you can come in')
-      //     this.props.handleSuccessfulAuth();
-      //   }else{
-      //     console.log('error')
-      //     // this.props.handleUnSuccessfulAuth();
-      //   }
+      if(this.state.email === EMAIL && this.state.password === PASSWORD){
+          console.log('you can come in')
+          this.props.handleSuccessfulAuth();
+        }else{
+          console.log('error')
+          this.props.handleUnSuccessfulAuth();
+        }
     }
 
   render() {
