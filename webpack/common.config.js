@@ -41,6 +41,12 @@ module.exports = {
 
   plugins: [
     new Dotenv(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(nodeEnv),
+      },
+      TRACE_TURBOLINKS: devBuild,
+    }),
     new SplitChunksPlugin({
       name: ['app', 'vendor'],
       minChunks: Infinity,
