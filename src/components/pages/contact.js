@@ -30,7 +30,7 @@ export default class Contact extends Component{
     handleSubmit(e){
         e.preventDefault()
         console.log(this)
-       fetch(`http://127.0.0.1:5000/email`, {
+       fetch(`https://joanne-hall-art-api.herokuapp.com/email`, {
            method: 'POST',
            headers: {
                'Content-Type': "application/json"
