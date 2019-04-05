@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-// const EMAIL = process.env.REACT_APP_EMAIL
-// const PASSWORD = process.env.REACT_APP_PASSWORD
+const EMAIL = process.env.REACT_APP_EMAIL
+const PASSWORD = process.env.REACT_APP_PASSWORD
 
 export default class Login extends Component {
     constructor(props){
