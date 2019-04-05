@@ -17,7 +17,7 @@ export default class ManagerSideBar extends Component {
     }
 
     componentDidMount(){
-        fetch("http://127.0.0.1:5000/current", {
+        fetch("https://joanne-hall-art-api.herokuapp.com/current", {
             method: 'GET',
             headers: {
                 'accepts': 'application/json',
