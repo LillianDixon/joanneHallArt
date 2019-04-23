@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import axios from "axios";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faTrash, faSignOutAlt, faEdit, faSpinner} from "@fortawesome/free-solid-svg-icons";
+import {faTrash, faSignOutAlt, faEdit, faSpinner, faBars} from "@fortawesome/free-solid-svg-icons";
 
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -17,7 +17,7 @@ import ArtworkCurrent from "./pages/artworkCurrent";
 import ArtworkPast from "./pages/artworkPast";
 import NoMatch from "./pages/no-match";
 
-library.add(faTrash, faSignOutAlt, faEdit, faSpinner);
+library.add(faTrash, faSignOutAlt, faEdit, faSpinner, faBars);
 
 
 
@@ -31,7 +31,7 @@ export default class App extends Component {
   };
 
   this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
-  this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+  this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(this);
   this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
 }
 
@@ -39,7 +39,7 @@ handleSuccessfulLogin() {
     localStorage.setItem('loggedInStatus', true)
 }
 
-handleUnsuccessfulLogin() {
+handleUnSuccessfulLogin() {
   console.log('not logged in')
 }
 
@@ -78,7 +78,7 @@ authorizedPages() {
                     <Auth
                       {...props}
                       handleSuccessfulLogin={this.handleSuccessfulLogin}
-                      handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+                      handleUnSuccessfulLogin={this.handleUnSuccessfulLogin}
                     />
                   )}
                 />

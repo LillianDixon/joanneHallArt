@@ -22,36 +22,49 @@ const Navbar = props => {
     };  
     return(
         <div className="navbar">
-            <div className="right-side">
-                <div className="sign-out">
-                {localStorage.getItem('loggedInStatus') ? (
-                    <a onClick={handleSignOut}>
-                      <FontAwesomeIcon icon="sign-out-alt" />
-                    </a>
-                  ) : null}
-                </div>
-                
-                <div className="siteManager">
-                    {localStorage.getItem('loggedInStatus') ? (
-                    dynamicLink("/siteManager", "Site Manager")
-                    ) : null}
-                </div>
+          <div className="nav-btn">
+              <label htmlFor="toggle">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </label>
+          </div> 
+          
+            <input type='checkbox' id="toggle"/>
 
-            </div>
-            <div className="link">
-                <NavLink exact to="/" activeClassName = "nav-link-active">Home</NavLink>
-            </div>
-            <div className="link">
-                <NavLink to="/about" activeClassName = "nav-link-active">About Me</NavLink>
-            </div>
-            <div className="link">
-                <NavLink to="/artwork" activeClassName = "nav-link-active">Artwork</NavLink>
-            </div>
-            <div className="link">
-                <NavLink to="/contact" activeClassName = "nav-link-active">Contact</NavLink>
-            </div>
-            <div className="link">
-                <NavLink to="#" activeClassName = "nav-link-active">Blog</NavLink>
+            <div className="links-wrapper">
+              <div className="right-side">
+                  <div className="sign-out">
+                  {localStorage.getItem('loggedInStatus') ? (
+                      <a onClick={handleSignOut}>
+                        <FontAwesomeIcon icon="sign-out-alt" />
+                      </a>
+                    ) : null}
+                  </div>
+                  
+                  <div className="siteManager">
+                      {localStorage.getItem('loggedInStatus') ? (
+                      dynamicLink("/siteManager", "Site Manager")
+                      ) : null}
+                  </div>
+
+              </div>
+              
+              <div className="link">
+                  <NavLink exact to="/" activeClassName = "nav-link-active">Home</NavLink>
+              </div>
+              <div className="link">
+                  <NavLink to="/about" activeClassName = "nav-link-active">About Me</NavLink>
+              </div>
+              <div className="link">
+                  <NavLink to="/artwork" activeClassName = "nav-link-active">Artwork</NavLink>
+              </div>
+              <div className="link">
+                  <NavLink to="/contact" activeClassName = "nav-link-active">Contact</NavLink>
+              </div>
+              <div className="link">
+                  <NavLink to="#" activeClassName = "nav-link-active">Blog</NavLink>
+              </div>
             </div>
 
             

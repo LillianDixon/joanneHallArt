@@ -27,13 +27,37 @@ export default class Login extends Component {
     handleSubmit(event) {
       event.preventDefault();
 
-      if(this.state.email === EMAIL && this.state.password === PASSWORD){
-          console.log('you can come in')
-          this.props.handleSuccessfulAuth();
-        }else{
-          console.log('error')
-          this.props.handleUnSuccessfulAuth();
-        }
+      fetch('http://127.0.0.1:5000/login', {
+        method: 'post',
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({email: this.state.email, password: this.state.password})
+      })
+      // .then(response => { console.log(response)
+      //   if (response.data.status === "created") {
+      //     this.props.handleSuccessfulAuth();
+      //   } else {
+      //     this.setState({
+      //       errorText: "Wrong email or password"
+      //     });
+      //     this.props.handleUnSuccessfulAuth();
+      //   }
+      // })
+      // .catch(error => { console.log(error)
+      //   this.setState({
+      //     errorText: "An error occurred"
+      //   });
+      //   this.props.handleUnSuccessfulAuth();
+      // });
+
+      // if(this.state.email === EMAIL && this.state.password === PASSWORD){
+      //     console.log('you can come in')
+      //     this.props.handleSuccessfulAuth();
+      //   }else{
+      //     console.log('error')
+      //     this.props.handleUnSuccessfulAuth();
+      //   }
     }
 
   render() {

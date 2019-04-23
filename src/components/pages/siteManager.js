@@ -11,6 +11,13 @@ export default class SiteManager extends Component {
       postedItems: [],
     }
 
+    this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this)
+  }
+
+  handleNewFormSubmission(){
+    this.setState({
+      postedItems: [postedItem].concat(this.state.postedItems)
+    })
   }
 
 
@@ -19,6 +26,7 @@ export default class SiteManager extends Component {
     return (
         <div className="site-manager-wrapper">
             <ManagerForm 
+              handleNewFormSubmission={this.handleNewFormSubmission}
             />
             <ManagerSideBar />
       </div>

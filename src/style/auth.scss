@@ -1,12 +1,17 @@
 .auth-page-wrapper {
     display: grid;
+    justify-content: center;
     grid-template-columns: 1fr 1fr;
-    height: calc(100vh - 84px);
-    padding-bottom: 100px;
+    padding-bottom: 150px;
 
-    .left-column img{
-        width: 100%;
-        padding: 50px;
+    .left-column {
+        justify-self: center;
+        align-self: center;
+
+        img{
+            width: 100%;
+            padding: 50px;
+        }
     }
 
     .right-column{

@@ -6,47 +6,59 @@ body{
     display: flex;
     justify-content: flex-end;
     background-color: $grey;
-   
-    .link{
-        padding: 20px 30px;
-        
-        a{
-            text-decoration: none; 
-            color: $text-color;
-            text-transform: uppercase;
-            font-family: $title;
-            border-bottom: 1px solid transparent;
 
-            &:hover{
-                border-bottom: 1px solid black;
-                color: black;
-                transition: 0.5s;
-            }
-        }
 
+    .nav-btn{
+        display: none;
     }
 
-    .right-side{
-        padding: 20px 30px;
+    #toggle{
+        display: none;
+    }
+    
+    .links-wrapper{
         display: flex;
-    
-    
-        a{
-            text-decoration: none; 
-            color: $text-color;
-            font-family: $title;
-            text-transform: uppercase;
-            border-bottom: 1px solid transparent;
-    
-            &:hover{
-                border-bottom: 1px solid black;
-                color: black;
-                transition: 0.5s;
-            }
-        }
 
-        .sign-out{
-            padding-right: 20px;
+        .link{
+            padding: 20px 30px;
+            
+            a{
+                text-decoration: none; 
+                color: $text-color;
+                text-transform: uppercase;
+                font-family: $title;
+                border-bottom: 1px solid transparent;
+    
+                &:hover{
+                    border-bottom: 1px solid black;
+                    color: black;
+                    transition: 0.5s;
+                }
+            }
+    
+        }
+    
+        .right-side{
+            padding: 20px 30px;
+            display: flex;
+        
+        
+            a{
+                text-decoration: none; 
+                color: $text-color;
+                font-family: $title;
+                text-transform: uppercase;
+        
+                &:hover{
+                    border-bottom: 1px solid black;
+                    color: black;
+                    transition: 0.5s;
+                }
+            }
+    
+            .sign-out{
+                padding-right: 20px;
+            }
         }
     }
 } 

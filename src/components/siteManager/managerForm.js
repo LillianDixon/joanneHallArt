@@ -25,7 +25,7 @@ export default class ManagerForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onImageDrop = this.onImageDrop.bind(this);
-
+        this.clearForm = this.clearForm.bind(this);
         
     }
 
@@ -104,7 +104,19 @@ export default class ManagerForm extends Component {
                     }
                 }
             })
-        
+        this.clearForm()
+    }
+
+    clearForm(){
+        this.setState({
+            uploadedFile: null,
+            uploadedFileCloudinaryUrl: '',
+            title: "",
+            category: "current",
+            description: "",
+            img_url: '',
+            imgSrc: null
+        })
     }
 
     

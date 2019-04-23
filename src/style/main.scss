@@ -13,6 +13,7 @@
 @import "managerForm.scss";
 @import "managerSideBar.scss";
 // @import "mixins.scss";
+@import "media-queries.scss";
 
 *{
     margin: 0;
@@ -22,4 +23,5 @@
 html, body {
     height: 100vh;
     background-color: $white;
+    overflow-x: hidden;
 }
