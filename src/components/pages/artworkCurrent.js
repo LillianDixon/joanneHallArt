@@ -12,7 +12,7 @@ export default class artworkCurrent extends Component {
 
     componentWillMount(){
         const {id} = this.props.match.params
-        fetch(`https://joanne-hall-art-api.herokuapp.com/current/${id}`, {
+        fetch(`https://joanneapi.herokuapp.com/current/${id}`, {
             method:"GET",
             headers: {
                 'accepts': 'application/json',
@@ -22,7 +22,7 @@ export default class artworkCurrent extends Component {
         .then(response => {return response.json();})
         .then(data => {this.setState({singlePost: data});})
         .catch(err => {
-            console.log("Fetch error", err)
+            console.log("Fetch error on current artwork page", err)
         })
         
     }

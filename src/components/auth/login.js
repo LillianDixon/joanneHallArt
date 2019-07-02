@@ -27,13 +27,13 @@ export default class Login extends Component {
     handleSubmit(event) {
       event.preventDefault();
 
-      fetch('http://127.0.0.1:5000/login', {
-        method: 'post',
-        headers: {
-          "content-type": "application/json"
-        },
-        body: JSON.stringify({email: this.state.email, password: this.state.password})
-      })
+      // fetch('http://127.0.0.1:5000/login', {
+      //   method: 'post',
+      //   headers: {
+      //     "content-type": "application/json"
+      //   },
+      //   body: JSON.stringify({email: this.state.email, password: this.state.password})
+      // })
       // .then(response => { console.log(response)
       //   if (response.data.status === "created") {
       //     this.props.handleSuccessfulAuth();

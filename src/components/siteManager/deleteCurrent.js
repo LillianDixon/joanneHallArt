@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function DeleteCurrent(props) {
 
     function postDelete(){
-        fetch (`https://joanne-hall-art-api.herokuapp.com/delete_current/${props.id}`, {
+        fetch (`https://joanneapi.herokuapp.com/delete_current/${props.id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json"
@@ -13,7 +13,7 @@ export default function DeleteCurrent(props) {
             })
             .then(response => {return response.json()})
             .catch(err => {
-                console.log("Fetch error" + err)
+                console.log("Fetch error on delete current" + err)
             })
         };
 

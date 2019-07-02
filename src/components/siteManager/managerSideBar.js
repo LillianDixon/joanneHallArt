@@ -20,7 +20,7 @@ export default class ManagerSideBar extends Component {
 
 
     componentDidMount(){
-        fetch("https://joanne-hall-art-api.herokuapp.com/current?order_by=created_at&direction=desc", {
+        fetch("https://joanneapi.herokuapp.com/current", {
             method: 'GET',
             headers: {
                 'accepts': 'application/json',
@@ -30,11 +30,11 @@ export default class ManagerSideBar extends Component {
         .then(response => {return response.json();})
         .then(data => {this.setState({current: data})})
         .catch(err => {
-            console.log("Fetch error" + err)
+            console.log("Fetch erroron current sidebar" + err)
         })
 
         
-        fetch("https://joanne-hall-art-api.herokuapp.com/past?order_by=created_at&direction=desc", {
+        fetch("https://joanneapi.herokuapp.com/past", {
             method: 'GET',
             headers: {
                 'accepts': 'application/json',
@@ -44,7 +44,7 @@ export default class ManagerSideBar extends Component {
         .then(response => {return response.json();})
         .then(data => {this.setState({past: data})})
         .catch(err => {
-            console.log("Fetch error" + err)
+            console.log("Fetch error on past sidebar" + err)
         })
     }
 

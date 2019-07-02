@@ -24,13 +24,11 @@ export default class Contact extends Component{
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log( this)
     }
     
     handleSubmit(e){
         e.preventDefault()
-        console.log(this)
-       fetch('http://127.0.0.1:5000/email', {
+       fetch('https://joanneapi.herokuapp.com/email', {
            method: 'POST',
            headers: {
                'Content-Type': "application/json"

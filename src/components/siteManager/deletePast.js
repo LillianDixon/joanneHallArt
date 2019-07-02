@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function DeletePast(props) {
 
     function postDelete(){
-        fetch (`https://joanne-hall-art-api.herokuapp.com/delete_past/${props.id}`, {
+        fetch (`https://joanneapi.herokuapp.com/delete_past/${props.id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json"
@@ -12,7 +12,7 @@ export default function DeletePast(props) {
             })
             .then(response => {return response.json()})
             .catch(err => {
-                console.log("Fetch error" + err)
+                console.log("Fetch error on delete past" + err)
             })
         };
 

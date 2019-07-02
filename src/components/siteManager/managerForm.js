@@ -70,7 +70,7 @@ export default class ManagerForm extends Component {
                 
                     if(category === "current"){
             
-                        fetch(`https://joanne-hall-art-api.herokuapp.com/current/input`,{
+                        fetch(`https://joanneapi.herokuapp.com/current/input`,{
                             method: 'post',
                             headers: {
                                 "Content-Type": "application/json"
@@ -81,12 +81,12 @@ export default class ManagerForm extends Component {
                         .then(responseData=> {console.log (responseData)
                             return responseData})
                         .catch(err => {
-                            console.log("Fetch error" + err)
+                            console.log("Fetch error on current input" + err)
                         })
                     } else if(category === "past"){
                         
             
-                        fetch(`https://joanne-hall-art-api.herokuapp.com/past/input`,{
+                        fetch(`https://joanneapi.herokuapp.com/past/input`,{
                             method: 'post',
                             headers: {
                                 "Content-Type": "application/json"
@@ -97,10 +97,10 @@ export default class ManagerForm extends Component {
                         .then(responseData=> {console.log (responseData)
                             return responseData})
                         .catch(err => {
-                            console.log("Fetch error" + err)
+                            console.log("Fetch error on past input" + err)
                         })
                     }else{
-                        console.log("fetch error")
+                        console.log("fetch error on manager form")
                     }
                 }
             })
