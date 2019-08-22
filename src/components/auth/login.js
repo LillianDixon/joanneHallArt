@@ -29,13 +29,16 @@ export default class Login extends Component {
     handleSubmit(event) {
       event.preventDefault();
 
-      if(this.state.email === process.env.REACT_APP_EMAIL && this.state.password === process.env.REACT_APP_PASSWORD){
-        console.log('you can come in')
-        this.props.handleSuccessfulAuth();
-      }else{
-        console.log('error')
-        this.props.handleUnSuccessfulAuth();
-      }
+      console.log(process.env.REACT_APP_EMAIL)
+      console.log(process.env.REACT_APP_PASSWORD)
+
+      // if(this.state.email === process.env.REACT_APP_EMAIL && this.state.password === process.env.REACT_APP_PASSWORD){
+      //   console.log('you can come in')
+      //   this.props.handleSuccessfulAuth();
+      // }else{
+      //   console.log('error')
+      //   this.props.handleUnSuccessfulAuth();
+      // }
   }
 
     //   fetch('http://127.0.0.1:5000/login', {
