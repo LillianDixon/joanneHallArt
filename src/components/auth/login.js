@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
-const EMAIL = process.env.REACT_APP_EMAIL
-const PASSWORD = process.env.REACT_APP_PASSWORD
+// const EMAIL = process.env.REACT_APP_EMAIL
+// const PASSWORD = process.env.REACT_APP_PASSWORD
+
+
 
 export default class Login extends Component {
     constructor(props){
@@ -27,7 +29,7 @@ export default class Login extends Component {
     handleSubmit(event) {
       event.preventDefault();
 
-      if(this.state.email === EMAIL && this.state.password === PASSWORD){
+      if(this.state.email === process.env.REACT_APP_EMAIL && this.state.password === process.env.REACT_APP_PASSWORD){
         console.log('you can come in')
         this.props.handleSuccessfulAuth();
       }else{
