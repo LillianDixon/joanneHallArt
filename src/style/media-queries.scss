@@ -1,6 +1,10 @@
 @media screen and (max-width:900px){
     .home{
         padding-left: 50px;
+        
+        img{
+            width: 40vw;
+        }
     }
 
     .navbar{
@@ -107,4 +111,11 @@
         }
     }
 
+}
+
+@media screen and (max-width:650px){
+    .home img{
+        width: 60vw;
+
+    }
 }

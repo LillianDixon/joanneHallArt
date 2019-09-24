@@ -1,11 +1,14 @@
 body{
     margin: 0;
+    position: relative;
 }
 
 .navbar {
     display: flex;
     justify-content: flex-end;
     background-color: $grey;
+    width: 100vw;
+    position: absolute;
 
 
     .nav-btn{

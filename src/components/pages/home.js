@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import JHLogo from "../../../static/assets/images/JHLogo.png";
+import JHLogoFull from "../../../static/assets/images/JHLogofull.png";
 
 export default function(){
     return(
         <div className="home">
-            <img src={JHLogo}/>
-            <h1>Joanne Hall Art</h1>
-            {console.log(process.env)}
+            <img src={JHLogoFull}/>
+            {/* {console.log(process.env)} */}
                                      
         </div>
              
