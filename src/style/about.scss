@@ -6,7 +6,9 @@
         display: flex;
         justify-content: center;
         padding: 40px;
+        font-size: 1.5em;
         font-family: $title;
+        color: $dark;
     }
 
     .about-info-wrapper{
@@ -31,11 +33,13 @@
         h2{
             text-align: center;
             font-family: $title;
+            color: $dark;
         }
 
         p{ 
             text-align: center;
             font-family: $text;
+            color: $dark;
         }
     }
 }

@@ -14,8 +14,8 @@ export default class ManagerSideBar extends Component {
     }
 
     componentDidMount(){
-        // fetch("https://joanneapi.herokuapp.com/current", {
-            fetch("http://127.0.0.1:5000/current", {
+        fetch("https://joanneapi.herokuapp.com/current", {
+            // fetch("http://127.0.0.1:5000/current", {
             method: 'GET',
             headers: {
                 'accepts': 'application/json',
@@ -56,9 +56,11 @@ export default class ManagerSideBar extends Component {
                     <div className='two-column-wrapper'>
                         {this.state.current.map((post) => (
                             <div key={post[0]} className="individual-artwork">
-                                <Link className="title" to={`../artworkCurrent/${post[0]}`}>{post[1]}</Link>
-                                {/* <h3>{post[2]}</h3> */}
-                                <img src={post[3]}></img>
+                                <Link className="title" to={`../artworkCurrent/${post[0]}`}>
+                                    {/* <h3>{post[2]}</h3> */}
+                                    <img src={post[3]}></img>
+                                    {post[1]}
+                                </Link>
 
                             </div>
                         ))}
@@ -70,9 +72,11 @@ export default class ManagerSideBar extends Component {
                     <div className='two-column-wrapper'>
                         {this.state.past.map((post) => (
                             <div key={post[0]} className="individual-artwork">
-                                <Link className="title" to={`../artworkPast/${post[0]}`} id={post[0]}>{post[1]}</Link>
-                                {/* <h3>{post[2]}</h3> */}
-                                <img src={post[3]}></img>
+                                <Link className="title" to={`../artworkPast/${post[0]}`} id={post[0]}>
+                                    {/* <h3>{post[2]}</h3> */}
+                                    <img src={post[3]}></img>
+                                    {post[1]}
+                                </Link>
 
                             </div>
                         ))}
