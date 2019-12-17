@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-import uuid from 'uuid';
 
 
 const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET
@@ -30,6 +28,30 @@ export default class ManagerForm extends Component {
     }
 
 
+
+    componentDidUpdate(){
+        if (Object.keys(this.props.postToEdit).length > 0){
+            const{
+                id,
+                title,
+                category,
+                description,
+                img_url,
+                imgSrc,
+            } = this.props.postToEdit;
+            this.props.clearPostToEdit();
+
+            this.setState({
+                id:id,
+                title: title || "",
+                category: category || 'current',
+                description: description || '',
+                // img_url: img_url || "",
+                // imgSrc: imgSrc || ""
+            })
+            console.log(this.state)
+        }
+    }
     
 
     onImageDrop(files){

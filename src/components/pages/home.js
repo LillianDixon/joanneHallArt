@@ -5,7 +5,6 @@ export default function(){
     return(
         <div className="home">
             <img src={JHLogoFull}/>
-            {/* {console.log(process.env)} */}
                                      
         </div>
              

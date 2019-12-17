@@ -66,14 +66,14 @@ class Update extends Component {
                 <form onSubmit={this.handleSubmit} style = {{visibility: this.state.formHidden ? 'hidden' : "visible"}} >
                     <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
                     <textarea type="textarea" name="description" value={this.state.description} onChange={this.handleChange} />
-                    {/* <select
+                    <select
                         name="category"
                         vlaue={this.state.category}
                         onChange={this.handleChange}
                     >
                         <option value="current">Current</option>
                         <option value="past">Past</option>
-                    </select> */}
+                    </select>
                     <input type="submit" value="submit" />
                 </form>
                 

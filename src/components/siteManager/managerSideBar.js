@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import DeleteCurrent from './deleteCurrent';
 import DeletePast from './deletePast';
 import Update from "./update";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class ManagerSideBar extends Component {
     constructor(props){
@@ -64,8 +65,14 @@ export default class ManagerSideBar extends Component {
                             <img src={post[3]}></img>
                             <div className="delete-update">
                             <DeleteCurrent className="delete"  id={post[0]}/>
-                            <Update className="update" rec={post} 
-                            />
+                            {/* <Update className="update" rec={post} 
+                            /> */}
+                            <a 
+                                className='edit-icon'
+                                onClick={() => this.props.handleEditClick(post)}
+                            >
+                                <FontAwesomeIcon icon = "edit" />
+                            </a>
                             </div>
 
                         </div>
