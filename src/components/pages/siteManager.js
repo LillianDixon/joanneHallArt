@@ -31,24 +31,17 @@ export default class SiteManager extends Component {
     this.setState({
       postToEdit: post
     });
+    // console.log('postToEdit', this.state.postToEdit)
   }
 
-  getCurrentItems(){
-    axios.get("https://joanneapi.herokuapp.com/current")
-    .then(response => {
-      console.log('response', response)
-      this.setState({
-        postedItems: [...response.data]
-      })
-    }).catch (error => {
-      console.log('error', error)
-    })
-  }
 
   getPastItems(){
     axios.get("https://joanneapi.herokuapp.com/past")
     .then(response => {
-      console.log('get post response', response)
+      console.log('get past response', response)
+      this.setState({
+        postedItems: [...response.data]
+      })
     }).catch (error => {
       console.log('error', error)
     })
@@ -58,6 +51,9 @@ export default class SiteManager extends Component {
     axios.get("https://joanneapi.herokuapp.com/current")
     .then(response => {
       console.log('get current response', response)
+      this.setState({
+        postedItems: [...response.data]
+      })
     }).catch (error => {
       console.log('error', error)
     })
@@ -92,10 +88,13 @@ export default class SiteManager extends Component {
               postToEdit = {this.state.postToEdit}
             />
             <ManagerSideBar 
+              handleDeleteCurrentClick={this.handleDeleteCurrentClick}
               getPastItems={this.getPastItems}
               getCurrentItems = {this.getCurrentItems}
               handleEditClick = {this.handleEditClick}
+              data={this.state.postedItems}
             />
+            {console.log('postedItems', this.state.postedItems)}
 
       </div>
     );

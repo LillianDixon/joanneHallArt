@@ -16,7 +16,7 @@ export default class ManagerForm extends Component {
             title: "",
             category: "current",
             description: "",
-            img_url: '',
+            img_url: '',  
             imgSrc: null
         }
         
@@ -99,7 +99,9 @@ export default class ManagerForm extends Component {
                             },
                             body: JSON.stringify({title, description, img_url})
                         })
-                        .then(response => {return response.json();})
+                        .then(response => {
+                            return response.json()
+                        })
                         .then(responseData=> {console.log (responseData)
                             return responseData})
                         .catch(err => {
@@ -144,6 +146,7 @@ export default class ManagerForm extends Component {
     
   handleChange(event) {
     this.setState({
+        
       [event.target.name]: event.target.value
     });
   }
